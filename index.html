@@ -20,8 +20,8 @@
             <span id="question-num">1 of 3 questions</span>
           </div>
 
-          <div hidden class="timer-div">
-            <span class="time-left"></span>
+          <div class="timer-div">
+            <span hidden id="time-left">60</span>
           </div>
         </div>
 
@@ -53,14 +53,22 @@
         </div>
 
         <div hidden id="profile-setup">
-          <h1>Enter your initials here to save your profile!</h1>
-          <input id="user-initials" type="text">
-          <button hidden id="submit">Submit</button>
+          <form>
+            <h1>Enter your initials here to save your profile!</h1>
+            <input id="user-initials" type="text">
+            <button hidden id="submit-button">Submit</button>
+          </form>
         </div>
       </div>
 
       <div class="score">
         <div hidden id="user-score">Your Score: </div>
+        <div id="leaderboard">
+          <h1>Leaderboard</h1>
+          <ul id="leaderboard-list">
+            
+          </ul>
+        </div>
         <button hidden id="restart">Restart</button>
       </div>
       <script src="./Assets/script.js"></script>
