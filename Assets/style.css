@@ -1,0 +1,29 @@
+#start-text {
+    display:flex;
+    justify-content:center;
+}
+
+#start-button {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+#start-button button {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:20%;
+    height:60px;
+}
+
+#user-score {
+    justify-content:center;
+    margin-top:5%;
+    font-size:30px;
+}
+
+#quiz-main {
+    display:flex;
+    justify-content:center;
+}

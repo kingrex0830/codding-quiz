@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../Desktop/MCQ Quiz App"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "codding-quiz"
+	}
+}
