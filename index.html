@@ -8,69 +8,66 @@
     <link rel="stylesheet" href="./Assets/style.css">
 </head>
 <body>
-    <div id="start">
+      <!-- Start button -->
+      <div id="start">
         <h1 id="start-text">Click here to start the quiz!</h1>
         <button id="start-button">Start</button>
       </div>
-
+      <!-- Quiz main body -->
       <div id="quiz-main">
-
-        <div class="header">
-          <div hidden class="question-num">
-            <span id="question-num">1 of 3 questions</span>
-          </div>
-
+        <!-- Timer -->
           <div class="timer-div">
             <span hidden id="time-left">60</span>
           </div>
+      </div>
+      <!-- Questions -->
+      <div id="questions">
+        <div hidden id="question-1">
+          <h1>Question 1</h1>
+            <ul><button id="correct-1">Answer 1</button></ul>
+            <ul><button id="incorrect-1-1">Answer 2</button></ul>
+            <ul><button id="incorrect-1-2">Answer 3</button></ul>
         </div>
-
-        <div id="questions">
-          <div hidden id="question-1">
-            <h1>Question 1</h1>
-              <ul><button id="correct-1">Answer 1</button></ul>
-              <ul><button id="incorrect-1-1">Answer 2</button></ul>
-              <ul><button id="incorrect-1-2">Answer 3</button></ul>
-          </div>
-          <div hidden id="question-2">
-            <h1>Question 2</h1>
-              <ul><button id="correct-2">Answer 1</button></ul>
-              <ul><button id="incorrect-2-1">Answer 2</button></ul>
-              <ul><button id="incorrect-2-2">Answer 3</button></ul>
-          </div>
-          <div hidden id="question-3">
-            <h1>Question 3</h1>
-              <ul><button id="correct-3">Answer 1</button></ul>
-              <ul><button id="incorrect-3-1">Answer 2</button></ul>
-              <ul><button id="incorrect-3-2">Answer 3</button></ul>
-          </div>
+        <div hidden id="question-2">
+          <h1>Question 2</h1>
+            <ul><button id="correct-2">Answer 1</button></ul>
+            <ul><button id="incorrect-2-1">Answer 2</button></ul>
+            <ul><button id="incorrect-2-2">Answer 3</button></ul>
         </div>
-
-        <div id="next-buttons">
-          <button hidden id="next-1">Next</button>
-          <button hidden id="next-2">Next</button>
-          <button hidden id="finish">Finish</button>
-        </div>
-
-        <div hidden id="profile-setup">
-          <form>
-            <h1>Enter your initials here to save your profile!</h1>
-            <input id="user-initials" type="text">
-            <button hidden id="submit-button">Submit</button>
-          </form>
+        <div hidden id="question-3">
+          <h1>Question 3</h1>
+            <ul><button id="correct-3">Answer 1</button></ul>
+            <ul><button id="incorrect-3-1">Answer 2</button></ul>
+            <ul><button id="incorrect-3-2">Answer 3</button></ul>
         </div>
       </div>
-
-      <div class="score">
-        <div hidden id="user-score">Your Score: </div>
-        <div id="leaderboard">
-          <h1>Leaderboard</h1>
-          <ul id="leaderboard-list">
+      <!-- Next buttons and finish button -->
+      <div id="next-buttons">
+        <button hidden id="next-1">Next</button>
+        <button hidden id="next-2">Next</button>
+        <button hidden id="finish">Finish</button>
+      </div>
+      <!-- Input initials to save score -->
+      <div hidden id="profile-setup">
+        <form>
+          <h1>Enter your initials here to save your profile!</h1>
+          <input id="user-initials" type="text" maxlength="3">
+          <button hidden id="submit-button">Submit</button>
+        </form>
+      </div>
+    </div>
+    <!-- Score and leaderboard display -->
+    <div class="score">
+      <div hidden id="user-score">Your Score: </div>
+      <div id="leaderboard">
+        <h1>Last Saved Score</h1>
+        <ul id="leaderboard-list">
             
-          </ul>
-        </div>
-        <button hidden id="restart">Restart</button>
+        </ul>
       </div>
+        <!-- Restart quiz -->
+        <button hidden id="restart">Restart</button>
+    </div>
       <script src="./Assets/script.js"></script>
 </body>
 </html>

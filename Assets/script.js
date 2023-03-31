@@ -1,3 +1,4 @@
+// Pre-set global variables
 var startButton = document.getElementById("start-button")
 var startMenu = document.getElementById("start")
 startButton.addEventListener("click", startQuiz)
@@ -31,7 +32,10 @@ var count = 60
 var timeLeft = document.getElementById("time-left")
 var leaderboardList = document.getElementById("leaderboard-list")
 console.log(initialsInput.value)
-
+// Calls user initials and score to display on the leaderboard. Values defined later
+score = JSON.parse(localStorage.getItem('score'))
+leaderboardList.textContent = "Initials:" + score.user + " Score: " + score.finalScore
+// Add one score if question 1 is correct
 function addScore1() {
     scoreCount = scoreCount + 1
     console.log(scoreCount)
@@ -41,7 +45,7 @@ function addScore1() {
     correctAnswer1.textContent = "Correct!"
     return scoreCount
 }
-
+// Add one score if question 2 is correct
 function addScore2() {
   scoreCount = scoreCount + 1
   console.log(scoreCount)
@@ -51,7 +55,7 @@ function addScore2() {
   correctAnswer2.textContent = "Correct!"
   return scoreCount
 }
-
+// Add one score if question 3 is correct
 function addScore3() {
     scoreCount = scoreCount + 1
     console.log(scoreCount)
@@ -61,13 +65,13 @@ function addScore3() {
     correctAnswer3.textContent = "Correct!"
     return scoreCount
 }
-
+// Calls addScore functions if the user clicks the correct answer for each question
 function isCorrect() {
   correctAnswer1.addEventListener("click", addScore1)
   correctAnswer2.addEventListener("click", addScore2)
   correctAnswer3.addEventListener("click", addScore3)
 }
-
+// Add no score and subtract 5 seconds from timer if question 1 is incorrect
 function noScore1() {
   correctAnswer1.disabled = true
   incorrectAnswer11.disabled = true
@@ -76,7 +80,7 @@ function noScore1() {
   incorrectAnswer12.textContent = "Incorrect!"
   count -= 5
 }
-
+// Add no score and subtract 5 seconds from timer if question 2 is incorrect
 function noScore2() {
   correctAnswer2.disabled = true
   incorrectAnswer21.disabled = true
@@ -85,7 +89,7 @@ function noScore2() {
   incorrectAnswer22.textContent = "Incorrect!"
   count -= 5
 }
-
+// Add no score and subtract 5 seconds from timer if question 3 is incorrect
 function noScore3() {
   correctAnswer3.disabled = true
   incorrectAnswer31.disabled = true
@@ -94,7 +98,7 @@ function noScore3() {
   incorrectAnswer32.textContent = "Incorrect!"
   count -= 5
 }
-
+// Calls noScore functions if the user clicks the incorrect answer for each question
 function isIncorrect() {
   incorrectAnswer11.addEventListener("click", noScore1)
   incorrectAnswer12.addEventListener("click", noScore1)
@@ -103,12 +107,10 @@ function isIncorrect() {
   incorrectAnswer31.addEventListener("click", noScore3)
   incorrectAnswer32.addEventListener("click", noScore3)
 }
-
+// 60 second timer to go for duration of the quiz. Function found online and modified for the purposes of this app
 function timer() {
   const makeIteration = () => {
-    // console.clear();
     if (count > 0) {
-      console.log(count);
       setTimeout(makeIteration, 1000); // 1 second waiting
     } else if (count == 0) {
       finishQuiz()
@@ -117,12 +119,11 @@ function timer() {
     count -= 1;
     timeLeft.textContent=count
   }
-  
   setTimeout(makeIteration, 1000); // 1 second waiting
   console.log(makeIteration)
   console.log(count)
   }
-
+// Start the quiz
 function startQuiz() {
   console.log("Start")
   count=60
@@ -135,7 +136,7 @@ function startQuiz() {
   timeLeft.style.display="block"
   console.log("Hello world")
 }
-
+// Hide question 1 and show question 2 upon activation
 function nextQuestion1() {
   console.log("Next")
   isCorrect()
@@ -145,7 +146,7 @@ function nextQuestion1() {
   question1.style.display="none"
   question2.style.display="block"
 }
-
+// Hide question 2 and show question 3 upon activation
 function nextQuestion2() {
   console.log("Next")
   isCorrect()
@@ -155,7 +156,7 @@ function nextQuestion2() {
   question2.style.display="none"
   question3.style.display="block"
 }
-
+// Hide question 3 and show final screen upon activation
 function finishQuiz() {
   console.log("Finish")
   question3.style.display="none"
@@ -170,11 +171,11 @@ function finishQuiz() {
   userScore.textContent += scoreCount
   console.log(scoreCount)
 }
-
+// Allows the user to input their initials to save their score
 function saveProfile(event) {
   event.preventDefault()
   console.log("hello")
-  var userInitials = initialsInput.value
+  var userInitials = initialsInput.value.toUpperCase()
   console.log(userInitials)
   console.log("score is ", scoreCount)
   var score = {
@@ -186,14 +187,12 @@ function saveProfile(event) {
   score = JSON.parse(localStorage.getItem('score'))
   leaderboardList.textContent = "Initials:" + score.user + " Score: " + score.finalScore
 }
-
-function scoreboard() {
-  
-}
-
+// Refreshes page upon activation
 function restartQuiz() {
-  // location.reload()
+  location.reload()
+  score = JSON.parse(localStorage.getItem('score'))
+  leaderboardList.textContent = "Initials:" + score.user + " Score: " + score.finalScore
 }
-
-// restartButton.addEventListener("click", restartQuiz)
+// Runs appropriate functions on click
 submitButton.addEventListener("click", saveProfile)
+restartButton.addEventListener("click", restartQuiz)
